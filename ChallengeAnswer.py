@@ -27,23 +27,23 @@ print("""
 """)
 print("\033[31m|=======================================================================|\033[0;0m")
 
-while erros != 6 and not vitoria:
+while erros != 3 and not vitoria:
     acertou = False
     receberEntrada = True
 
-    # Repete até receber uma entrada aceitável
+    # Verificações de entradas
     while receberEntrada:
         chute = input("\033[31mQual a letra deseja saber se existe na frase?\033[0;0m ")
         print("\033[31m|=======================================================================|\033[0;0m")
         receberEntrada = False
-        # Checa se é uma letra, pra evitar tirar ponto por espaço ou caractere especial
-        if not chute.isalpha():
-            print("\033[31mInsira apenas letras, por favor.\033[0;0m")
+        # Verificando se o chute é uma letra
+        if not chute.isalpha() or len(chute) >=2:
+            print("\033[31mInsira apenas uma LETRA, por favor.\033[0;0m")
             print("\033[31m|=======================================================================|\033[0;0m")
             receberEntrada = True
-        # Converte em lowercase por constância, porque B é igual a b. 
+        # Converte em minúsculo para não ocorrer conflitos 
         chute = chute.lower()
-        # Verifica cada letra utilizada
+        # Impede repetições
         for letra in letras_utilizadas:
             if chute == letra:
                 receberEntrada = True
@@ -51,7 +51,7 @@ while erros != 6 and not vitoria:
                 print("\033[31m|=======================================================================|\033[0;0m")
     letras_utilizadas.append(chute)
 
-    # Faz a busca do chute
+    # Verifica se a letra do chute está na palavra
     for i in range(len(escolha)):
         if(chute == escolha[i]):
             letras_descobertas[i] = chute
@@ -62,7 +62,7 @@ while erros != 6 and not vitoria:
         print("\033[36mExiste essa letra na palavra!\033[0;0m")
         print("\033[31m|=======================================================================|\033[0;0m")
         vitoria = True
-        # Verifica se as letras da escolha e as letras descobertas batem
+        # Verifica se o usuário ganhou o jogo
         for i in range(len(escolha)):
             if escolha[i] != letras_descobertas[i]:
                 vitoria = False
