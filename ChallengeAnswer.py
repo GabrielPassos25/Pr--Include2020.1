@@ -1,5 +1,5 @@
 import random
-palavras = ['petcomputacao','cenoura']
+palavras = ['petcomputacao','protelar','prescrever','proscrever','paralelepipedo', 'preeminente', 'proeminente', 'preposicao', 'proposicao', 'prolatar']
 escolha = random.choice(palavras)
 
 #Variáveis Utilizadas
@@ -38,7 +38,7 @@ while erros != 3 and not vitoria:
         receberEntrada = False
         # Verificando se o chute é uma letra
         if not chute.isalpha() or len(chute) >=2:
-            print("\033[31mInsira apenas uma LETRA, por favor.\033[0;0m")
+            print("\033[41mInsira apenas uma LETRA, por favor.\033[0;0m")
             print("\033[31m|=======================================================================|\033[0;0m")
             receberEntrada = True
         # Converte em minúsculo para não ocorrer conflitos 
@@ -72,12 +72,12 @@ while erros != 3 and not vitoria:
     else:
         erros += 1
         print("\033[36mNão existe essa letra na palavra!\033[0;0m")
-        print("\033[36mTentativas restantes: ", 6-erros, "\033[0;0m")
+        print("\033[36mTentativas restantes: ", 3-erros, "\033[0;0m")
         if erros == 1:
             print("""
             ||||||||||||
             |         °°°
-            |        °UwU°
+            |        °._.°
             |         °°°
             |
             |
@@ -90,32 +90,6 @@ while erros != 3 and not vitoria:
             print("""
             ||||||||||||
             |         °°°
-            |        °V-V°
-            |         °°°
-            |          |
-            |          |
-            |          |
-            |          
-            |
-            """)
-
-        elif erros == 3:
-            print("""
-            ||||||||||||
-            |         °°°
-            |        °Q_Q°
-            |         °°°
-            |         /|
-            |        / |
-            |          |
-            |          
-            |
-            """)
-            print("\033[31m|=======================================================================|\033[0;0m")        
-        elif erros == 4:
-            print("""
-            ||||||||||||
-            |         °°°
             |        °O_O°
             |         °°°
             |         /|\ 
@@ -124,20 +98,6 @@ while erros != 3 and not vitoria:
             |          
             |
             """)
-
-        elif erros == 5:
-            print("""
-            ||||||||||||
-            |         °°°
-            |        °0_0°
-            |         °°°
-            |         /|\ 
-            |        / | \ 
-            |          |
-            |         /
-            |        
-            """)
-            print("\033[31m|=======================================================================|\033[0;0m")
         else:
             print("""
             ||||||||||||
@@ -150,6 +110,6 @@ while erros != 3 and not vitoria:
             |         / \ 
             |
             """)
-            print("\033[32mVocê perdeu!\033[0;0m")
+            print("\033[32mVocê perdeu! A palavra era: \033[0;0m",escolha)
             print("\033[31m|=======================================================================|\033[0;0m")
     
